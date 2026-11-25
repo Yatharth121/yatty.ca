@@ -3,329 +3,529 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Resume — Yatharth Choudhary, Cloud &amp; Platform Engineer</title>
+<title>Yatharth Choudhary — Cloud &amp; Platform Engineer</title>
 <link rel="canonical" href="https://yatty.ca/resume/">
-<meta name="description" content="Cloud and platform engineer with 7+ years running AWS at scale: 65+ accounts, Terraform, ECS, GitHub Actions, and $400K+ in annual savings.">
+<meta name="description" content="Cloud and platform engineer running 65+ AWS accounts on Terraform: $400K a year in savings, org-wide IAM Identity Center, malware scanning, ECS platforms, GitHub Actions pipelines and AI-assisted infrastructure work.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F2F3EE;
-  --ink:#17222B;
-  --muted:#56636D;
-  --line:#D3D8D0;
-  --teal:#0F766E;
-  --teal-soft:#D5E8E3;
-  --amber:#D99A2B;
-  --sans:"Familjen Grotesk",system-ui,sans-serif;
-  --serif:"Source Serif 4",Georgia,serif;
+  --bg:#0F1B2A;
+  --panel:#142436;
+  --panel-2:#1A2D43;
+  --line:#25405C;
+  --text:#E7EEF6;
+  --muted:#93A7BC;
+  --sky:#5AB0FF;
+  --cost:#F2B14C;
+  --id:#3CCFB4;
+  --sec:#FF7A6B;
+  --iac:#A98BFF;
+  --sans:"Geist",system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:var(--teal);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:2px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-h1,h2,h3{font-family:var(--sans);line-height:1.15;letter-spacing:-0.01em;margin:0}
-h2{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:600;margin-bottom:1.5rem}
-h3{font-size:1.3rem;font-weight:600}
-p{margin:0 0 1em;max-width:68ch}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--sky);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-0.02em}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:600;max-width:24ch}
+h3{font-size:1.35rem;font-weight:600}
+p{margin:0 0 1em;max-width:66ch}
+.muted{color:var(--muted)}
+code,.code{font-family:var(--mono);font-size:.9em}
 
 /* nav */
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-family:var(--sans)}
-nav .name{font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+nav .me{color:var(--text);text-decoration:none;font-weight:600}
 nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0}
-nav ul a{color:var(--ink);text-decoration:none;font-size:.98rem}
-nav ul a:hover{color:var(--teal)}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav ul a:hover{color:var(--text)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:72px 0 96px}
-.hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:700;letter-spacing:-0.025em;line-height:1.02}
-.hero .lede{font-size:1.2rem;color:var(--muted);margin:1.4rem 0 2rem;max-width:34ch}
-.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--sans)}
-.btn{display:inline-block;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:600;font-size:1rem}
-.btn.primary{background:var(--ink);color:var(--paper)}
-.btn.primary:hover{background:var(--teal)}
-.btn.ghost{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
-.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--teal);color:var(--teal)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:56px 0 72px}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.7rem);font-weight:700;letter-spacing:-0.035em;line-height:1.02}
+.hero h1 span{display:block;color:var(--muted)}
+.hero .lede{font-size:1.15rem;color:var(--muted);margin:1.5rem 0 2rem;max-width:44ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.98rem}
+.btn.primary{background:var(--sky);color:#08121D}
+.btn.primary:hover{background:#86C5FF}
+.btn.ghost{color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--sky)}
 
-.fleet{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
-.fleet .grid{display:grid;grid-template-columns:repeat(13,1fr);gap:6px}
-.fleet .acct{aspect-ratio:1;border-radius:3px;background:#E4E7E1;transition:background .25s}
-.fleet .acct.on{background:var(--teal)}
-.fleet .acct.seed{background:var(--amber)}
-.fleet .readout{display:flex;justify-content:space-between;align-items:flex-end;margin-top:22px;font-family:var(--sans)}
-.fleet .big{font-size:2.6rem;font-weight:700;letter-spacing:-0.02em;line-height:1;font-variant-numeric:tabular-nums}
-.fleet .small{color:var(--muted);font-size:.95rem;text-align:right;line-height:1.35}
-.fleet .caption{font-size:.92rem;color:var(--muted);margin:16px 0 0;font-family:var(--serif)}
-.key{display:flex;flex-wrap:wrap;gap:8px 18px;white-space:nowrap;margin-top:10px;font-family:var(--sans);font-size:.85rem;color:var(--muted)}
-.key span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.key .k1::before{background:var(--amber)}.key .k2::before{background:var(--teal)}.key .k3::before{background:#E4E7E1}
+.org{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.org-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.org-head b{font-weight:600}
+.org-head span{color:var(--muted);font-size:.85rem}
+.layers{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.layers button{font:inherit;font-size:.88rem;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.layers button:hover{color:var(--text)}
+.layers button[aria-pressed="true"]{color:#08121D;background:var(--c);border-color:var(--c)}
+.grid65{display:grid;grid-template-columns:repeat(13,1fr);gap:5px}
+.acct{aspect-ratio:1;border-radius:3px;background:var(--panel-2);transition:background .3s ease,transform .3s ease}
+.acct.on{background:var(--c)}
+.readout{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:end;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.readout .num{font-size:2.3rem;font-weight:700;letter-spacing:-0.03em;line-height:1;color:var(--c);font-variant-numeric:tabular-nums}
+.readout .what{color:var(--text);font-size:.95rem;line-height:1.35}
+.readout .note{grid-column:1/3;color:var(--muted);font-size:.85rem;margin-top:8px}
 
-/* facts strip */
-.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
-.facts div{padding:26px 22px;border-left:1px solid var(--line);font-family:var(--sans)}
-.facts div:first-child{border-left:0;padding-left:0}
-.facts b{display:block;font-size:1.7rem;font-weight:700;letter-spacing:-0.02em}
-.facts span{color:var(--muted);font-size:.95rem}
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:24px 20px;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0;padding-left:0}
+.stats b{display:block;font-size:1.8rem;font-weight:700;letter-spacing:-0.03em}
+.stats span{color:var(--muted);font-size:.92rem}
 
-section{padding:96px 0 0}
+section{padding:110px 0 0}
+.sec-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
+.sec-intro p{color:var(--muted);margin:0}
 
-/* work */
-.case{display:grid;grid-template-columns:260px 1fr;gap:48px;padding:40px 0;border-top:1px solid var(--line)}
-.case:last-child{border-bottom:1px solid var(--line)}
-.case .result{font-family:var(--sans);font-size:2rem;font-weight:700;color:var(--teal);letter-spacing:-0.02em;line-height:1.05}
-.case .result small{display:block;font-size:.95rem;font-weight:500;color:var(--muted);margin-top:6px;letter-spacing:0}
-.case h3{margin-bottom:.7rem}
-.case .stack{font-family:var(--sans);font-size:.92rem;color:var(--muted);margin-top:.4rem}
+/* case studies */
+.case{display:grid;grid-template-columns:5fr 6fr;gap:48px;padding:48px 0;border-top:1px solid var(--line);align-items:center}
+.case:nth-of-type(even) .case-text{order:2}
+.metric{font-size:2.6rem;font-weight:700;letter-spacing:-0.035em;line-height:1;margin-bottom:.4rem}
+.metric small{display:block;font-size:.95rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:8px}
+.case h3{margin:1.2rem 0 .8rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:1rem 0 0}
+.chips li{font-family:var(--mono);font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
 
-/* experience */
-.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
-.timeline li{position:relative;padding:0 0 44px 32px}
-.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--teal)}
-.timeline li:first-child::before{background:var(--teal)}
-.timeline .when{font-family:var(--sans);color:var(--muted);font-size:.95rem}
-.timeline h3{margin:.15rem 0 .6rem}
-.timeline h3 span{font-weight:400;color:var(--muted)}
-.timeline ul{margin:0;padding-left:1.1em;max-width:70ch}
-.timeline ul li{padding:0 0 .35em;border:0}
-.timeline ul li::before{display:none}
+/* diagrams */
+.diagram{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;font-size:.9rem}
+.flow{display:flex;align-items:stretch;gap:0}
+.flow > .node{flex:1}
+.arrow{flex:0 0 28px;position:relative}
+.arrow::before{content:"";position:absolute;left:4px;right:6px;top:50%;height:2px;background:var(--line)}
+.arrow::after{content:"";position:absolute;right:2px;top:calc(50% - 4px);border:5px solid transparent;border-left-color:var(--line);border-right:0}
+.node{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;line-height:1.3}
+.node b{display:block;font-weight:600;font-size:.92rem}
+.node span{color:var(--muted);font-size:.8rem}
+.node.hl{border-color:var(--c)}
+.node.hl b{color:var(--c)}
+.stack{display:flex;flex-direction:column;gap:8px}
+.vlink{height:18px;width:2px;background:var(--line);margin:0 auto}
+.cap{color:var(--muted);font-size:.82rem;margin:14px 0 0}
+.box{border:1px dashed var(--line);border-radius:12px;padding:12px}
+.box > .label{color:var(--muted);font-size:.78rem;margin-bottom:8px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+
+/* spot bar */
+.bar{display:flex;height:40px;border-radius:8px;overflow:hidden;margin:10px 0 6px}
+.bar div{display:flex;align-items:center;padding:0 12px;font-size:.82rem;font-weight:600;color:#08121D}
+.legend{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem}
+
+/* pipeline */
+.pipeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;align-items:center}
+.pipeline .node{text-align:left}
+.pipeline .arrow{height:100%}
+.pipe-wrap{display:grid;grid-template-columns:repeat(11,auto);align-items:center;overflow-x:auto;padding-bottom:6px}
+.pipe-wrap .node{min-width:120px}
+.check{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--id);margin-right:6px;vertical-align:1px}
+.check.warn{background:var(--cost)}
+.side{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+
+/* two-column lists */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.item{border-top:2px solid var(--c,var(--line));padding-top:16px}
+.item h3{font-size:1.12rem;margin-bottom:.5rem}
+.item p{color:var(--muted);font-size:.98rem;margin:0}
+
+/* terminal */
+.term{background:#0A131E;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.term-bar{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.term pre{margin:0;padding:18px;font-family:var(--mono);font-size:.84rem;line-height:1.7;color:var(--muted);overflow-x:auto}
+.term .p{color:var(--sky)}
+.term .ok{color:var(--id)}
+.term .w{color:var(--text)}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline > li{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line)}
+.timeline .when{color:var(--muted);font-size:.95rem}
+.timeline h3{font-size:1.2rem;margin-bottom:.5rem}
+.timeline h3 span{color:var(--muted);font-weight:400}
+.timeline ul{margin:0;padding-left:1.1em;color:var(--muted)}
+.timeline ul li{margin-bottom:.3em}
 
 /* homelab */
-.lab{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.topo{font-family:var(--sans);display:flex;flex-direction:column;align-items:stretch;gap:0}
-.node{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 18px}
-.node b{display:block;font-weight:600}
-.node span{color:var(--muted);font-size:.92rem}
-.edge{width:2px;height:22px;background:var(--teal);margin:0 auto}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.node.host{border-color:var(--teal);background:var(--teal-soft)}
-.lxc{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.lxc div{background:#fff;border-radius:6px;padding:8px 10px;font-size:.9rem}
+.lab{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.lab p{color:var(--muted)}
 
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 48px}
-.skills h3{font-size:1.05rem;margin-bottom:.4rem}
-.skills p{color:var(--muted);font-size:1rem;margin:0}
+/* toolkit */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 40px}
+.tools h3{font-size:1rem;margin-bottom:.4rem}
+.tools p{color:var(--muted);font-size:.96rem;margin:0}
 
 .creds{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.creds ul{list-style:none;padding:0;margin:0}
+.creds ul{list-style:none;padding:0;margin:20px 0 0}
 .creds li{padding:12px 0;border-top:1px solid var(--line)}
-.creds li span{display:block;color:var(--muted);font-size:.95rem}
+.creds li span{display:block;color:var(--muted);font-size:.92rem}
 
-/* contact */
-.contact{padding:110px 0 120px}
-.contact h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:700;letter-spacing:-0.025em;max-width:18ch}
-.contact .email{font-family:var(--sans);font-size:1.3rem;font-weight:600}
-footer{border-top:1px solid var(--line);padding:26px 0;font-family:var(--sans);color:var(--muted);font-size:.9rem}
+.contact{padding:120px 0}
+.contact h2{font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:700;max-width:18ch;margin-bottom:1.2rem}
+.contact p{color:var(--muted)}
+.contact .email{font-size:1.35rem;font-weight:600;color:var(--text)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.9rem}
 
-@media (max-width:860px){
+@media (max-width:920px){
   nav ul{display:none}
-  .hero{grid-template-columns:1fr;gap:40px;padding:36px 0 64px}
-  .facts{grid-template-columns:1fr 1fr}
-  .facts div:nth-child(3){border-left:0;padding-left:0}
-  .facts div:nth-child(n+3){border-top:1px solid var(--line)}
-  .case{grid-template-columns:1fr;gap:14px}
-  .lab,.creds{grid-template-columns:1fr;gap:36px}
-  .skills{grid-template-columns:1fr 1fr}
-  section{padding-top:72px}
+  .hero,.sec-intro,.case,.lab,.creds{grid-template-columns:1fr;gap:32px}
+  .case:nth-of-type(even) .case-text{order:0}
+  .hero{padding:28px 0 56px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(3){border-left:0;padding-left:0}
+  .stats div:nth-child(n+3){border-top:1px solid var(--line)}
+  .cols,.tools{grid-template-columns:1fr 1fr}
+  .timeline > li{grid-template-columns:1fr;gap:6px}
+  section{padding-top:80px}
+  .pipe > .flow{flex-direction:column}
+  .pipe > .flow .arrow{flex:0 0 20px}
+  .pipe > .flow .arrow::before{left:50%;right:auto;top:2px;bottom:6px;width:2px;height:auto}
+  .pipe > .flow .arrow::after{left:calc(50% - 4px);right:auto;top:auto;bottom:0;border:5px solid transparent;border-top-color:var(--line);border-bottom:0}
 }
-@media (max-width:520px){
-  .wrap{padding:0 20px}
-  .skills{grid-template-columns:1fr}
-  .fleet{padding:20px}
-  .fleet .big{font-size:2.1rem}
+@media (max-width:560px){
+  .wrap{padding:0 18px}
+  .cols,.tools,.side{grid-template-columns:1fr}
+  .flow{flex-direction:column}
+  .flow .arrow{flex:0 0 20px}
+  .flow .arrow::before{left:50%;right:auto;top:2px;bottom:6px;width:2px;height:auto}
+  .flow .arrow::after{left:calc(50% - 4px);right:auto;top:auto;bottom:0;border:5px solid transparent;border-top-color:var(--line);border-bottom:0}
+  .trio{grid-template-columns:1fr}
+  .org{padding:16px}
+  .readout .num{font-size:1.9rem}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fleet .acct{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.acct{transition:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <nav aria-label="Main">
-  <a class="name" href="/">Yatharth Choudhary</a>
+  <a class="me" href="/">Yatharth Choudhary</a>
   <ul>
     <li><a href="#work">Work</a></li>
+    <li><a href="#pipelines">Pipelines</a></li>
+    <li><a href="#ai">AI</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#homelab">Homelab</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://github.com/Yatharth121">GitHub</a></li>
   </ul>
 </nav>
 
-<header class="hero" id="top">
+<header class="hero">
   <div>
-    <h1>I run AWS at scale, and make it cheaper to run.</h1>
-    <p class="lede">Cloud and platform engineer in Toronto. Seven years across Amazon, Nokia and Assent, keeping dozens of AWS accounts consistent, secure and codified in Terraform.</p>
+    <h1>65 AWS accounts. One Terraform codebase. <span>$400K a year back in the budget.</span></h1>
+    <p class="lede">I'm a cloud and platform engineer at Assent in Toronto. I own the infrastructure as code, identity, security tooling and delivery pipelines across our AWS organization, and I'm building the AI agents my team uses to work on it.</p>
     <div class="ctas">
-      <a class="btn primary" href="#work">See selected work</a>
+      <a class="btn primary" href="#work">See the work</a>
       <a class="btn ghost" href="#contact">Get in touch</a>
     </div>
   </div>
 
-  <figure class="fleet" aria-label="Resource scheduler rollout across AWS accounts">
-    <div class="grid" id="grid"></div>
-    <div class="readout">
-      <div class="big" id="savings">$60K</div>
-      <div class="small">annual savings<br><span id="count">8</span> accounts scheduled</div>
+  <figure class="org" id="org" style="margin:0">
+    <div class="org-head"><b>The AWS organization I run</b><span>65+ accounts</span></div>
+    <div class="layers" role="group" aria-label="Show coverage by project">
+      <button type="button" data-layer="cost" aria-pressed="true">Cost scheduling</button>
+      <button type="button" data-layer="id" aria-pressed="false">Identity</button>
+      <button type="button" data-layer="iac" aria-pressed="false">Terraform imports</button>
+      <button type="button" data-layer="sec" aria-pressed="false">Malware scanning</button>
     </div>
-    <div class="key"><span class="k1">Pilot</span><span class="k2">Rolled out</span><span class="k3">Always-on</span></div>
-    <figcaption class="caption">One Terraform scheduler for EC2, ECS and RDS, scaled from 8 to 50+ of 65 AWS accounts with Lambda and GitHub Actions.</figcaption>
+    <div class="grid65" id="grid" aria-hidden="true"></div>
+    <div class="readout" aria-live="polite">
+      <div class="num" id="num">50+</div>
+      <div class="what" id="what">accounts on the resource scheduler, up from 8</div>
+      <div class="note" id="note">EC2, ECS and RDS stop outside working hours. Savings grew from $60K to $400K a year.</div>
+    </div>
+    <figcaption class="cap">Each square is one AWS account. Positions are illustrative; the counts are real.</figcaption>
   </figure>
 </header>
 
-<div class="facts">
-  <div><b>7+ years</b><span>in cloud, DevOps and networking</span></div>
-  <div><b>65+</b><span>AWS accounts managed</span></div>
-  <div><b>$400K+</b><span>annual infrastructure savings</span></div>
-  <div><b>20+</b><span>production Terraform modules</span></div>
+<div class="stats">
+  <div><b>$400K+</b><span>annual savings from automation</span></div>
+  <div><b>65+</b><span>AWS accounts under management</span></div>
+  <div><b>20+</b><span>production Terraform modules authored</span></div>
+  <div><b>7+ years</b><span>across Amazon, Nokia and Assent</span></div>
 </div>
 
+<!-- ============ WORK ============ -->
 <section id="work">
-  <h2>Selected work</h2>
+  <div class="sec-intro">
+    <h2>What I've built at Assent</h2>
+    <p>Since May 2024 I've been the engineer teams come to for new AWS platforms, cost problems, access and anything that needs to be in Terraform but isn't yet.</p>
+  </div>
 
-  <article class="case">
-    <div class="result">$60K → $400K<small>annual savings</small></div>
-    <div>
-      <h3>Scaling a cost scheduler across the AWS organization</h3>
-      <p>Non-production EC2, ECS and RDS ran around the clock across dozens of accounts. I took a scheduler that covered 8 accounts and rebuilt it as a reusable Terraform module, with Lambda doing the start/stop work and GitHub Actions rolling it out account by account. It now covers 50+ accounts.</p>
-      <p>I've rebuilt the pattern from scratch as an open-source module: <a href="https://github.com/Yatharth121/terraform-aws-resource-scheduler">terraform-aws-resource-scheduler</a>.</p>
-      <div class="stack">Terraform, AWS Lambda, GitHub Actions, EC2, ECS, RDS</div>
+  <!-- 1 scheduler -->
+  <article class="case" style="--c:var(--cost)">
+    <div class="case-text">
+      <div class="metric" style="color:var(--cost)">$60K → $400K<small>annual infrastructure savings</small></div>
+      <h3>A cost scheduler for the whole organization</h3>
+      <p>Non-production EC2, ECS and RDS ran around the clock. I took a scheduler that covered 8 accounts, rebuilt it as a Terraform module and rolled it out with GitHub Actions to 50+ accounts. Teams opt resources in with a tag.</p>
+      <p class="muted">I've rebuilt the pattern from scratch as an open-source module: <a href="https://github.com/Yatharth121/terraform-aws-resource-scheduler">terraform-aws-resource-scheduler</a>.</p>
+      <ul class="chips"><li>Terraform</li><li>Lambda</li><li>EventBridge</li><li>GitHub Actions</li><li>EC2</li><li>ECS</li><li>RDS</li></ul>
     </div>
-  </article>
-
-  <article class="case">
-    <div class="result">Up to 70%<small>lower compute cost</small></div>
-    <div>
-      <h3>Hybrid Fargate Spot service for Tableau Bridge</h3>
-      <p>Designed an ECS module that mixes Fargate Spot and On-Demand capacity, with memory-based auto-scaling and custom Docker images for PostgreSQL compatibility, so the service stays available while most of it runs on Spot pricing.</p>
-      <div class="stack">Amazon ECS, Fargate Spot, Docker, Terraform</div>
-    </div>
-  </article>
-
-  <article class="case">
-    <div class="result">Hundreds<small>of resources brought under IaC</small></div>
-    <div>
-      <h3>Importing legacy infrastructure into Terraform</h3>
-      <p>Wrote Python automation to import hand-built AWS resources across 30+ accounts into Terraform state, recovered a lost Azure state file, and moved PagerDuty alerting and on-call configuration into Terraform so monitoring follows the same review process as infrastructure.</p>
-      <div class="stack">Terraform, Python, AWS, Azure, PagerDuty</div>
-    </div>
-  </article>
-
-  <article class="case">
-    <div class="result">50% faster<small>client onboarding</small></div>
-    <div>
-      <h3>Multi-account provisioning at Amazon</h3>
-      <p>Automated account provisioning for enterprise customers with Control Tower and Account Factory for Terraform, so governance guardrails apply the same way every time. Handled 2–4 SEV-1/SEV-2 escalations a week on Control Tower, landing zones and Service Control Policies for organizations of 100+ accounts.</p>
-      <div class="stack">AWS Control Tower, AFT, CloudFormation, CDK, Service Catalog</div>
-    </div>
-  </article>
-
-  <article class="case">
-    <div class="result">$140K<small>renewal unblocked</small></div>
-    <div>
-      <h3>Enterprise SSO when the owner left</h3>
-      <p>Took over client SSO integrations after a key departure and resolved AD FS and SAML failures for enterprise customers including Amazon, Boston Scientific and Cardinal Health.</p>
-      <div class="stack">SAML, AD FS, Okta, IAM Identity Center</div>
-    </div>
-  </article>
-
-  <article class="case">
-    <div class="result">Agentic<small>infrastructure workflows</small></div>
-    <div>
-      <h3>A CloudOps AI framework</h3>
-      <p>Building an internal framework of agent definitions, prompts and per-repository configuration, so engineers can start a coding agent that already knows each infrastructure repo's structure and rules. Connected to AWS, GitHub and Atlassian through MCP for resource imports, PR review and Jira triage.</p>
-      <div class="stack">GitHub Copilot agent mode, MCP, Claude, Terraform</div>
-    </div>
-  </article>
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
-  <ol class="timeline">
-    <li>
-      <div class="when">May 2024 – present, Toronto</div>
-      <h3>Cloud Operations Specialist <span>at Assent</span></h3>
-      <ul>
-        <li>Own Terraform modules, network architecture and IAM permission sets across 65+ AWS accounts.</li>
-        <li>Built GitHub Actions pipelines for plan/apply, drift detection with Slack alerts, linting and releases.</li>
-        <li>Rolled out Trend Micro Vision One file security across 20+ AWS environments.</li>
-        <li>Run quarterly patching for NA and EU production and automate weekly releases with Jenkins.</li>
-        <li>Mentor new engineers on Terraform, Ansible, GitHub Actions and SSO.</li>
-      </ul>
-    </li>
-    <li>
-      <div class="when">Sep 2022 – May 2024, Toronto</div>
-      <h3>Cloud DevOps Engineer <span>at Amazon</span></h3>
-      <ul>
-        <li>Enterprise DevOps support on CloudFormation, Control Tower, Service Catalog and CDK, with 97% CSAT.</li>
-        <li>Delivered 5+ technical workshops on running large AWS environments.</li>
-        <li>Quality Champion: reviewed support cases and contributed to AWS documentation.</li>
-      </ul>
-    </li>
-    <li>
-      <div class="when">Aug 2020 – Sep 2022, Ottawa</div>
-      <h3>Cloud Network Engineer, SD-WAN <span>at Nokia</span></h3>
-      <ul>
-        <li>24/7 support for SD-WAN across AWS, Azure and on-premises, with 95% CSAT and 99% SLA compliance.</li>
-        <li>Led outage calls with 5–6 vendors and ISPs; recognized for keeping the Philippines' national elections connected.</li>
-        <li>Cut lab setup time by 75% with Ansible and Bash.</li>
-      </ul>
-    </li>
-    <li>
-      <div class="when">Dec 2017 – Aug 2018, India</div>
-      <h3>Programmer Analyst <span>at Cognizant</span></h3>
-      <ul>
-        <li>Led 5 developers building an Alexa skill on Node.js, Lambda, S3 and DynamoDB.</li>
-      </ul>
-    </li>
-  </ol>
-</section>
-
-<section id="homelab">
-  <h2>The homelab</h2>
-  <div class="lab">
-    <div>
-      <p>At home I run the same kind of infrastructure I run at work, on a smaller budget. It's where I try things before I'd suggest them to a team.</p>
-      <p>Traffic comes in over a fibre PPPoE link to an OPNsense firewall, which also issues a wildcard TLS certificate through ACME DNS-01 using a CNAME alias. A managed switch trunks separate VLANs for wired and wireless devices. Services run as LXC containers on Proxmox behind Nginx Proxy Manager, with Authelia adding two-factor sign-in and Pi-hole providing split-horizon DNS. Remote access is over WireGuard.</p>
-      <p>Most of what I've learned came from breaking it: a corrupted ACME token, an ISP migration from DHCP to PPPoE, a failed boot SSD. Each fix ends up written down.</p>
-    </div>
-    <div class="topo" role="img" aria-label="Homelab network diagram: internet to OPNsense firewall, managed switch with wired and Wi-Fi VLANs, then a Proxmox host running Nginx Proxy Manager, Authelia, Pi-hole and Jellyfin">
-      <div class="node"><b>Internet</b><span>Fibre, PPPoE</span></div>
-      <div class="edge"></div>
-      <div class="node"><b>OPNsense</b><span>Firewall, DHCP, ACME wildcard TLS</span></div>
-      <div class="edge"></div>
-      <div class="node"><b>Managed switch</b><span>VLAN trunking</span></div>
-      <div class="edge"></div>
-      <div class="split">
-        <div class="node"><b>Wired VLAN</b><span>Servers and hosts</span></div>
-        <div class="node"><b>Wi-Fi VLAN</b><span>Access point</span></div>
+    <div class="diagram" role="img" aria-label="Diagram: GitHub Actions deploys the Terraform module to 50+ accounts; in each account a schedule triggers a Lambda that starts and stops tagged EC2, ECS and RDS resources.">
+      <div class="flow">
+        <div class="node"><b>GitHub Actions</b><span>rollout per account</span></div>
+        <div class="arrow"></div>
+        <div class="node"><b>Terraform module</b><span>one version, everywhere</span></div>
       </div>
-      <div class="edge"></div>
-      <div class="node host"><b>Proxmox VE</b><span>LXC containers</span>
-        <div class="lxc">
-          <div>Nginx Proxy Manager</div>
-          <div>Authelia 2FA</div>
-          <div>Pi-hole DNS</div>
-          <div>Jellyfin</div>
+      <div class="vlink"></div>
+      <div class="box">
+        <div class="label">In each of 50+ accounts</div>
+        <div class="flow">
+          <div class="node"><b>Schedule</b><span>weekday hours</span></div>
+          <div class="arrow"></div>
+          <div class="node hl"><b>Lambda</b><span>start / stop</span></div>
+          <div class="arrow"></div>
+          <div class="stack" style="flex:1">
+            <div class="node"><b>EC2</b></div>
+            <div class="node"><b>ECS services</b></div>
+            <div class="node"><b>RDS</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 2 obfuscation -->
+  <article class="case" style="--c:var(--sky)">
+    <div class="case-text">
+      <div class="metric" style="color:var(--sky)">3 services<small>one production platform, built from scratch</small></div>
+      <h3>An ECS platform for a data obfuscation tool</h3>
+      <p>I designed and deployed the production module for a new data obfuscation tool. Three coordinated ECS services share a PostgreSQL backend and EFS storage. Each tier gets its own security group, and the same module deploys every environment.</p>
+      <ul class="chips"><li>Amazon ECS</li><li>RDS PostgreSQL</li><li>EFS</li><li>Security groups</li><li>Terraform</li></ul>
+    </div>
+    <div class="diagram" role="img" aria-label="Diagram: three ECS services, each in its own security group, connected to a shared RDS PostgreSQL database and a shared EFS file system, deployed per environment.">
+      <div class="box">
+        <div class="label">Per environment</div>
+        <div class="trio">
+          <div class="node hl"><b>Service A</b><span>ECS, own SG</span></div>
+          <div class="node hl"><b>Service B</b><span>ECS, own SG</span></div>
+          <div class="node hl"><b>Service C</b><span>ECS, own SG</span></div>
+        </div>
+        <div class="vlink"></div>
+        <div class="duo">
+          <div class="node"><b>RDS PostgreSQL</b><span>shared backend</span></div>
+          <div class="node"><b>EFS</b><span>shared storage</span></div>
+        </div>
+      </div>
+      <p class="cap">Security groups only allow the paths each service needs.</p>
+    </div>
+  </article>
+
+  <!-- 3 malware -->
+  <article class="case" style="--c:var(--sec)">
+    <div class="case-text">
+      <div class="metric" style="color:var(--sec)">20+ environments<small>with automated malware scanning</small></div>
+      <h3>Automated malware scanning for S3 storage</h3>
+      <p>I rolled out Trend Micro Vision One File Security Storage across more than 20 AWS environments. Every new object is scanned and results go out over SNS. CloudFormation, Lambda and Secrets Manager wire it together, with WebSocket components for scanner communication.</p>
+      <ul class="chips"><li>Trend Micro Vision One</li><li>CloudFormation</li><li>Lambda</li><li>SNS</li><li>Secrets Manager</li><li>S3</li></ul>
+    </div>
+    <div class="diagram" role="img" aria-label="Diagram: a file lands in S3, triggers a scan through Trend Micro Vision One using credentials from Secrets Manager, and the result is published to SNS.">
+      <div class="flow">
+        <div class="node"><b>S3 upload</b><span>new object</span></div>
+        <div class="arrow"></div>
+        <div class="node hl"><b>Vision One scan</b><span>Lambda + WebSocket</span></div>
+        <div class="arrow"></div>
+        <div class="node"><b>SNS</b><span>scan result</span></div>
+      </div>
+      <div class="vlink"></div>
+      <div class="flow">
+        <div class="node"><b>Secrets Manager</b><span>scanner credentials</span></div>
+        <div class="arrow"></div>
+        <div class="node"><b>CloudFormation</b><span>same stack in 20+ envs</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 4 fargate spot -->
+  <article class="case" style="--c:var(--id)">
+    <div class="case-text">
+      <div class="metric" style="color:var(--id)">Up to 70%<small>lower compute cost</small></div>
+      <h3>Tableau Bridge on Fargate Spot</h3>
+      <p>I built an ECS module that runs most Tableau Bridge capacity on Fargate Spot, with an On-Demand base to keep it available. It scales on memory, and I built custom Docker images to make PostgreSQL connections work.</p>
+      <ul class="chips"><li>Fargate Spot</li><li>ECS auto scaling</li><li>Docker</li><li>Terraform</li></ul>
+    </div>
+    <div class="diagram" role="img" aria-label="Diagram: capacity split between a small On-Demand base and mostly Fargate Spot, scaling on memory.">
+      <b>Capacity provider strategy</b>
+      <div class="bar">
+        <div style="flex:1;background:var(--sky)">On-Demand base</div>
+        <div style="flex:3;background:var(--id)">Fargate Spot</div>
+      </div>
+      <div class="legend"><span>Keeps the service up if Spot is reclaimed</span><span>Up to 70% cheaper</span></div>
+      <div class="vlink" style="margin-top:14px"></div>
+      <div class="flow">
+        <div class="node"><b>Memory alarm</b><span>CloudWatch</span></div>
+        <div class="arrow"></div>
+        <div class="node hl"><b>Service auto scaling</b><span>adds or removes tasks</span></div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ GOVERNANCE ============ -->
+<section id="governance">
+  <div class="sec-intro">
+    <h2>Identity, governance and keeping it all in code</h2>
+    <p>The work that doesn't make a demo, but decides whether 65 accounts stay secure and consistent.</p>
+  </div>
+  <div class="cols">
+    <div class="item" style="--c:var(--id)"><h3>Org-wide access with IAM Identity Center</h3><p>I designed the permission sets that give engineering, QA and operations role-based access across 65+ accounts.</p></div>
+    <div class="item" style="--c:var(--id)"><h3>Enterprise SSO, rescued</h3><p>After a key departure I took over client SSO integrations and fixed AD FS and SAML problems for Amazon, Boston Scientific and Cardinal Health. The Amazon fix unblocked a $140K renewal.</p></div>
+    <div class="item" style="--c:var(--iac)"><h3>Hundreds of resources imported</h3><p>I wrote Python automation to import legacy AWS resources from 30+ accounts into Terraform state, and recovered a lost Azure state file.</p></div>
+    <div class="item" style="--c:var(--iac)"><h3>Network baselines for new accounts</h3><p>New accounts get VPCs, subnets, NAT gateways, route tables and security groups from Terraform, ready for production on day one.</p></div>
+    <div class="item" style="--c:var(--iac)"><h3>On-call as code</h3><p>I moved all PagerDuty alerting and on-call schedules into Terraform, so monitoring changes go through the same review as infrastructure.</p></div>
+    <div class="item" style="--c:var(--cost)"><h3>Patching and releases</h3><p>I run quarterly patching for NA and EU production, and automated weekly releases across UAT, Staging and CAT with Jenkins.</p></div>
+  </div>
+</section>
+
+<!-- ============ PIPELINES ============ -->
+<section id="pipelines">
+  <div class="sec-intro">
+    <h2>How infrastructure changes ship</h2>
+    <p>I build and maintain the GitHub Actions workflows that CloudOps and other teams use. Nothing reaches an account without a reviewed plan, and drift gets reported to Slack.</p>
+  </div>
+  <div class="diagram pipe" role="img" aria-label="Pipeline: pull request, then lint and format checks, then terraform plan posted for review, then approval, then terraform apply, then a tagged release. A scheduled drift check posts to Slack.">
+    <div class="flow">
+      <div class="node"><b>Pull request</b><span>module change</span></div>
+      <div class="arrow"></div>
+      <div class="node"><b><i class="check"></i>Lint</b><span>fmt, validate, tflint</span></div>
+      <div class="arrow"></div>
+      <div class="node hl" style="--c:var(--sky)"><b><i class="check"></i>Plan</b><span>posted for review</span></div>
+      <div class="arrow"></div>
+      <div class="node"><b><i class="check"></i>Approve</b><span>code owners</span></div>
+      <div class="arrow"></div>
+      <div class="node hl" style="--c:var(--id)"><b><i class="check"></i>Apply</b><span>on merge</span></div>
+      <div class="arrow"></div>
+      <div class="node"><b><i class="check"></i>Release</b><span>versioned</span></div>
+    </div>
+    <div class="side">
+      <div class="node hl" style="--c:var(--cost)"><b><i class="check warn"></i>Scheduled drift check</b><span>re-runs plan against live accounts and alerts Slack on any difference</span></div>
+      <div class="node"><b>Shared across teams</b><span>the same workflows run for CloudOps and cross-functional repos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI ============ -->
+<section id="ai">
+  <div class="sec-intro">
+    <h2>AI agents that know our infrastructure</h2>
+    <p>I'm building Assent's CloudOps AI framework so engineers start every infrastructure repo with an agent that already knows how that repo works.</p>
+  </div>
+  <div class="lab">
+    <div class="cols" style="grid-template-columns:1fr">
+      <div class="item" style="--c:var(--iac)"><h3>One script, a configured agent</h3><p>The framework defines agents, instruction prompts and per-repository settings. A starter script sets up an agentic coding environment that follows each repo's structure and rules.</p></div>
+      <div class="item" style="--c:var(--iac)"><h3>Connected to real systems through MCP</h3><p>MCP connections to AWS, GitHub and Atlassian let agents import resources with context, resolve Jira tickets, review pull requests and troubleshoot AWS.</p></div>
+      <div class="item" style="--c:var(--iac)"><h3>Design separate from execution</h3><p>I use Claude Opus for architecture decisions and Sonnet for implementation, and use GitHub Copilot agent mode and CLI daily for module work and reviews.</p></div>
+    </div>
+    <div class="diagram" role="img" aria-label="Diagram: an engineer runs a starter script that configures a coding agent with repo-specific instructions; the agent connects through MCP to AWS, GitHub and Atlassian.">
+      <div class="flow">
+        <div class="node"><b>Engineer</b><span>runs starter script</span></div>
+        <div class="arrow"></div>
+        <div class="node hl" style="--c:var(--iac)"><b>Configured agent</b><span>repo rules + prompts</span></div>
+      </div>
+      <div class="vlink"></div>
+      <div class="box">
+        <div class="label">Model Context Protocol</div>
+        <div class="trio">
+          <div class="node"><b>AWS</b><span>import, troubleshoot</span></div>
+          <div class="node"><b>GitHub</b><span>PR analysis</span></div>
+          <div class="node"><b>Atlassian</b><span>Jira tickets</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
-  <h2>Toolkit</h2>
-  <div class="skills">
-    <div><h3>AWS</h3><p>EC2, ECS, RDS, Lambda, S3, VPC, IAM, Control Tower, CloudFormation, CloudWatch, SNS, Secrets Manager. Some Azure.</p></div>
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="sec-intro">
+    <h2>Experience</h2>
+    <p>Seven years moving from networks to cloud support to running cloud platforms.</p>
+  </div>
+  <ol class="timeline">
+    <li>
+      <div class="when">May 2024 – present<br>Toronto</div>
+      <div>
+        <h3>Cloud Operations Specialist <span>Assent</span></h3>
+        <ul>
+          <li>Everything above, plus mentoring new engineers on Terraform, Ansible, GitHub Actions and SSO.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Sep 2022 – May 2024<br>Toronto</div>
+      <div>
+        <h3>Cloud DevOps Engineer <span>Amazon</span></h3>
+        <ul>
+          <li>Automated multi-account provisioning with Control Tower and Account Factory for Terraform, cutting client onboarding time by 50%.</li>
+          <li>Resolved 2–4 SEV-1/SEV-2 escalations a week: nested stack failures, drift, landing zone upgrades and SCP conflicts for organizations of 100+ accounts.</li>
+          <li>97% customer satisfaction. Delivered 5+ enterprise workshops on Control Tower, Service Catalog and CloudFormation. Quality Champion.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Aug 2020 – Sep 2022<br>Ottawa</div>
+      <div>
+        <h3>Cloud Network Engineer, SD-WAN <span>Nokia</span></h3>
+        <ul>
+          <li>24/7 SD-WAN support across AWS, Azure and on-premises with 95% CSAT and 99% SLA compliance.</li>
+          <li>Led outage calls with 5–6 vendors and ISPs. Recognized for keeping the Philippines' national elections connected.</li>
+          <li>Cut lab setup time by 75% with Ansible and Bash.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="when">Dec 2017 – Aug 2018<br>India</div>
+      <div>
+        <h3>Programmer Analyst <span>Cognizant</span></h3>
+        <ul><li>Led 5 developers building an Alexa skill on Node.js, Lambda, S3 and DynamoDB.</li></ul>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ HOMELAB ============ -->
+<section id="homelab">
+  <div class="lab">
+    <div>
+      <h2 style="margin-bottom:1.4rem">After hours: the homelab</h2>
+      <p>At home I run the same kind of stack on my own hardware: an OPNsense firewall on a fibre PPPoE link, VLANs on a managed switch, Proxmox running LXC services behind Nginx Proxy Manager, Authelia for two-factor sign-in, Pi-hole for split-horizon DNS, a TrueNAS ZFS pool for storage and WireGuard for remote access.</p>
+      <p>TLS is a wildcard certificate issued through ACME DNS-01 with a CNAME alias. This site is static and deploys through GitHub Actions, so it stays up even when the lab is down.</p>
+    </div>
+    <div class="term" role="img" aria-label="Terminal-style summary of the homelab stack">
+      <div class="term-bar"><i></i><i></i><i></i></div>
+<pre><span class="p">$</span> <span class="w">lab status</span>
+edge      OPNsense · PPPoE · VLANs        <span class="ok">up</span>
+compute   Proxmox VE · LXC                <span class="ok">up</span>
+proxy     Nginx Proxy Manager · *.tls     <span class="ok">up</span>
+auth      Authelia 2FA                    <span class="ok">up</span>
+dns       Pi-hole split-horizon           <span class="ok">up</span>
+storage   TrueNAS · ZFS RAIDZ1            <span class="ok">up</span>
+remote    WireGuard                       <span class="ok">up</span>
+<span class="p">$</span> <span class="w">_</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLKIT ============ -->
+<section id="toolkit">
+  <h2 style="margin-bottom:40px">Toolkit</h2>
+  <div class="tools">
+    <div><h3>AWS</h3><p>Organizations, Control Tower, IAM Identity Center, EC2, ECS, RDS, Lambda, S3, VPC, CloudWatch, SNS, Secrets Manager. Some Azure.</p></div>
     <div><h3>Infrastructure as code</h3><p>Terraform, CloudFormation, AWS CDK, Ansible.</p></div>
     <div><h3>CI/CD</h3><p>GitHub Actions, Jenkins, CodePipeline, CodeBuild.</p></div>
     <div><h3>Containers</h3><p>Docker, ECS on Fargate and EC2, Kubernetes (CKA in progress).</p></div>
     <div><h3>Observability and security</h3><p>CloudWatch, Elasticsearch, Kibana, New Relic, PagerDuty, Wiz, Trend Micro.</p></div>
     <div><h3>Identity</h3><p>SAML, SSO, AD FS, Okta, IAM Identity Center.</p></div>
     <div><h3>Code</h3><p>Python, Bash, PowerShell, TypeScript, Node.js.</p></div>
-    <div><h3>AI-assisted engineering</h3><p>Copilot agent mode and CLI, MCP servers, Claude for architecture and implementation.</p></div>
-    <div><h3>Networking</h3><p>SD-WAN, VPC design, VLANs, firewalls, DNS, TLS, WireGuard.</p></div>
+    <div><h3>AI engineering</h3><p>Copilot agent mode and CLI, MCP servers, Claude.</p></div>
+    <div><h3>Networking</h3><p>VPC design, SD-WAN, VLANs, firewalls, DNS, TLS, WireGuard.</p></div>
   </div>
 </section>
 
@@ -352,43 +552,48 @@ footer{border-top:1px solid var(--line);padding:26px 0;font-family:var(--sans);c
 <section class="contact" id="contact">
   <h2>Hiring for senior cloud, platform or SRE roles?</h2>
   <p>I'm open to senior positions in Toronto, the GTA or remote in Canada. Email is the fastest way to reach me.</p>
-  <p class="email"><a href="mailto:choudhary.yatharth@gmail.com">choudhary.yatharth@gmail.com</a></p>
+  <p><a class="email" href="mailto:choudhary.yatharth@gmail.com">choudhary.yatharth@gmail.com</a></p>
   <p>Code: <a href="https://github.com/Yatharth121">github.com/Yatharth121</a></p>
 </section>
 </div>
 
-<footer><div class="wrap">© 2026 Yatharth Choudhary. Static site, deployed to GitHub Pages with GitHub Actions. <a href="https://github.com/Yatharth121/yatty.ca">Source</a>.</div></footer>
+<footer><div class="wrap">© 2026 Yatharth Choudhary. Static site deployed to GitHub Pages with GitHub Actions. <a href="https://github.com/Yatharth121/yatty.ca">Source</a>.</div></footer>
 
 <script>
 (function(){
-  var TOTAL=65, SEED=8, TARGET=50;
-  var grid=document.getElementById('grid');
-  var cells=[];
-  for(var i=0;i<TOTAL;i++){var d=document.createElement('div');d.className='acct'+(i<SEED?' seed':'');grid.appendChild(d);cells.push(d);}
-  // spread rollout order so it looks like real accounts lighting up
-  var order=[];for(var j=SEED;j<TOTAL;j++)order.push(j);
-  for(var k=order.length-1;k>0;k--){var r=(k*7919)%(k+1);var t=order[k];order[k]=order[r];order[r]=t;}
-  order=order.slice(0,TARGET-SEED);
-  var sav=document.getElementById('savings'), cnt=document.getElementById('count');
-  function render(n){
-    for(var i=0;i<order.length;i++)cells[order[i]].classList.toggle('on',i<n);
-    var accounts=SEED+n;
-    var dollars=Math.round(60+(400-60)*(n/order.length));
-    sav.textContent='$'+dollars+'K';
-    cnt.textContent=(n===order.length?'50+':accounts);
+  var LAYERS={
+    cost:{color:'--cost',count:50,num:'50+',what:'accounts on the resource scheduler, up from 8',note:'EC2, ECS and RDS stop outside working hours. Savings grew from $60K to $400K a year.'},
+    id:{color:'--id',count:65,num:'65+',what:'accounts behind IAM Identity Center permission sets',note:'Role-based access for engineering, QA and operations, managed in one place.'},
+    iac:{color:'--iac',count:30,num:'30+',what:'accounts with legacy resources imported into Terraform',note:'Hundreds of hand-built resources moved under state with Python automation.'},
+    sec:{color:'--sec',count:20,num:'20+',what:'environments with automated malware scanning',note:'Trend Micro Vision One scans every new S3 object and reports through SNS.'}
+  };
+  var TOTAL=65, grid=document.getElementById('grid'), cells=[];
+  for(var i=0;i<TOTAL;i++){var d=document.createElement('div');d.className='acct';grid.appendChild(d);cells.push(d);}
+  // fixed pseudo-random order per layer so the map looks like real, uneven coverage
+  function order(seed){
+    var a=[];for(var i=0;i<TOTAL;i++)a.push(i);
+    var s=seed;
+    for(var k=a.length-1;k>0;k--){s=(s*9301+49297)%233280;var r=Math.floor(s/233280*(k+1));var t=a[k];a[k]=a[r];a[r]=t;}
+    return a;
   }
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce){render(order.length);return;}
-  render(0);
-  var start=null, dur=2600, delay=700;
-  function step(ts){
-    if(start===null)start=ts;
-    var p=Math.min(1,Math.max(0,(ts-start-delay)/dur));
-    var e=1-Math.pow(1-p,3);
-    render(Math.round(e*order.length));
-    if(p<1)requestAnimationFrame(step);
+  var orders={cost:order(7),id:order(1),iac:order(23),sec:order(41)};
+  var org=document.getElementById('org');
+  var num=document.getElementById('num'),what=document.getElementById('what'),note=document.getElementById('note');
+  var buttons=org.querySelectorAll('.layers button');
+  function show(name){
+    var L=LAYERS[name], on={};
+    orders[name].slice(0,L.count).forEach(function(i){on[i]=1;});
+    org.style.setProperty('--c','var('+L.color+')');
+    cells.forEach(function(c,i){c.classList.toggle('on',!!on[i]);});
+    num.textContent=L.num;what.textContent=L.what;note.textContent=L.note;
+    buttons.forEach(function(b){
+      var active=b.getAttribute('data-layer')===name;
+      b.setAttribute('aria-pressed',active?'true':'false');
+      b.style.setProperty('--c','var('+LAYERS[b.getAttribute('data-layer')].color+')');
+    });
   }
-  requestAnimationFrame(step);
+  buttons.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-layer'));});});
+  show('cost');
 })();
 </script>
 </body>
