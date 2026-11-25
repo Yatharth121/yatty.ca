@@ -3,39 +3,392 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>yatty.ca — Yatharth Choudhary</title>
-<meta name="description" content="Yatharth Choudhary, cloud and platform engineer in Toronto. Resume, open-source infrastructure code and homelab notes.">
+<title>Yatharth Choudhary — Cloud &amp; Platform Engineer</title>
+<link rel="canonical" href="https://yatty.ca/">
+<meta name="description" content="Yatharth Choudhary, cloud and platform engineer in Toronto. AWS at scale, Terraform, GitHub Actions and AI-assisted infrastructure. Resume, open-source work, what I'm doing now and the tools I use.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#F2F3EE;--ink:#17222B;--muted:#56636D;--line:#D3D8D0;--teal:#0F766E;--amber:#D99A2B}
+:root{
+  --bg:#0F1B2A;--panel:#142436;--panel-2:#1A2D43;--line:#25405C;
+  --text:#E7EEF6;--muted:#93A7BC;--sky:#5AB0FF;
+  --cost:#F2B14C;--id:#3CCFB4;--sec:#FF7A6B;--iac:#A98BFF;
+  --sans:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:1.0625rem;line-height:1.65}
-.wrap{max-width:760px;margin:0 auto;padding:12vh 28px 80px}
-h1{font-family:"Familjen Grotesk",system-ui,sans-serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;letter-spacing:-0.025em;line-height:1.02;margin:0 0 1rem}
-p{color:var(--muted);font-size:1.2rem;max-width:40ch;margin:0 0 3rem}
-ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-li{border-bottom:1px solid var(--line)}
-li a{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:22px 0;text-decoration:none;color:var(--ink)}
-li a b{font-family:"Familjen Grotesk",system-ui,sans-serif;font-size:1.35rem;font-weight:600}
-li a span{grid-column:1;color:var(--muted)}
-li a:hover b{color:var(--teal)}
-li a:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
-li a i{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-family:"Familjen Grotesk",sans-serif;color:var(--muted);font-size:.95rem}
-footer{margin-top:4rem;font-family:"Familjen Grotesk",sans-serif;font-size:.9rem;color:var(--muted)}
-footer a{color:var(--teal)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--sky);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-0.02em}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:600}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0 0 1em;max-width:64ch}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono)}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+nav .me{color:var(--text);text-decoration:none;font-weight:600}
+nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav ul a:hover{color:var(--text)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:center;padding:64px 0 80px}
+.hero h1{font-size:clamp(2.5rem,5.2vw,4.3rem);font-weight:700;letter-spacing:-0.04em;line-height:1}
+.hero .role{font-size:clamp(1.25rem,2.2vw,1.6rem);color:var(--muted);font-weight:500;margin:1rem 0 1.4rem;letter-spacing:-0.01em}
+.hero .lede{color:var(--muted);max-width:52ch;margin-bottom:1.6rem}
+.stackline{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0 0 2rem}
+.stackline li{font-family:var(--mono);font-size:.8rem;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 9px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.98rem}
+.btn.primary{background:var(--sky);color:#08121D}
+.btn.primary:hover{background:#86C5FF}
+.btn.ghost{color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--sky)}
+
+/* live panel */
+.live{background:#0A131E;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.live-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-right:8px;vertical-align:1px}
+.dot.ok{background:var(--id);box-shadow:0 0 0 4px rgba(60,207,180,.15)}
+.dot.bad{background:var(--sec)}
+.dot.run{background:var(--cost)}
+.live dl{margin:0;padding:16px;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-family:var(--mono);font-size:.82rem}
+.live dt{color:var(--muted)}
+.live dd{margin:0;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.live dd a{color:var(--sky);text-decoration:none}
+.live .foot{padding:12px 16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+
+/* proof strip */
+.proof{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof a{display:block;padding:24px 20px;border-left:1px solid var(--line);text-decoration:none;color:inherit}
+.proof a:first-child{border-left:0;padding-left:0}
+.proof b{display:block;font-size:1.8rem;font-weight:700;letter-spacing:-0.03em;color:var(--c)}
+.proof span{color:var(--muted);font-size:.92rem}
+.proof a:hover span{color:var(--text)}
+
+section{padding:104px 0 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.head p{margin:0;color:var(--muted);max-width:52ch}
+
+/* work grid: one large + two stacked */
+.work{display:grid;grid-template-columns:3fr 2fr;gap:16px}
+.work .col{display:grid;gap:16px}
+.tile{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;text-decoration:none;color:inherit;position:relative}
+.tile:hover{border-color:var(--c)}
+.tile .k{font-size:2.4rem;font-weight:700;letter-spacing:-0.035em;line-height:1;color:var(--c);margin-bottom:14px}
+.tile h3{margin-bottom:.5rem}
+.tile p{color:var(--muted);margin:0;font-size:.98rem}
+.tile .go{display:inline-block;margin-top:16px;color:var(--c);font-weight:600;font-size:.92rem}
+.tile.big{padding:32px}
+.tile.big .k{font-size:3.4rem}
+.mini{display:grid;grid-template-columns:repeat(13,1fr);gap:4px;margin:24px 0 6px;max-width:380px}
+.mini i{aspect-ratio:1;border-radius:2px;background:var(--panel-2)}
+.mini i.on{background:var(--cost)}
+
+/* repo card */
+.repos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.repo{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column}
+.repo-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.repo-top a{font-family:var(--mono);font-size:.95rem;font-weight:500;text-decoration:none}
+.badge{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.repo p{color:var(--muted);font-size:.98rem}
+.repo ul{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:6px;font-size:.92rem}
+.repo ul li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--c);margin-right:10px;vertical-align:2px}
+.repo .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.78rem;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+
+/* architecture */
+.arch{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px}
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.lane h3{font-size:1rem;margin-bottom:14px;color:var(--muted);font-weight:500}
+.flow{display:flex;flex-direction:column;gap:0}
+.node{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:11px 14px;line-height:1.3}
+.node b{display:block;font-weight:600;font-size:.95rem}
+.node span{color:var(--muted);font-size:.82rem}
+.node.hl{border-color:var(--c)}
+.node.hl b{color:var(--c)}
+.down{height:22px;position:relative}
+.down::before{content:"";position:absolute;left:24px;top:2px;bottom:6px;width:2px;background:var(--line)}
+.down::after{content:"";position:absolute;left:20px;bottom:0;border:5px solid transparent;border-top-color:var(--line);border-bottom:0}
+.down em{position:absolute;left:40px;top:2px;font-style:normal;font-size:.78rem;color:var(--muted);font-family:var(--mono)}
+.arch .cap{color:var(--muted);font-size:.85rem;margin:20px 0 0}
+
+/* now + uses */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.now-date{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-bottom:18px}
+.now{list-style:none;margin:0;padding:0}
+.now li{display:grid;grid-template-columns:14px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.now li::before{content:"";width:10px;height:10px;border-radius:50%;border:2px solid var(--c);margin-top:7px}
+.now b{display:block;font-weight:600}
+.now span{color:var(--muted);font-size:.96rem}
+.uses dl{margin:0}
+.uses dt{font-weight:600;padding-top:16px;border-top:1px solid var(--line)}
+.uses dd{margin:4px 0 16px;color:var(--muted);font-size:.96rem}
+
+/* activity */
+.activity{list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:.85rem}
+.activity li{display:grid;grid-template-columns:110px 220px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);align-items:baseline}
+.activity .when{color:var(--muted)}
+.activity .repo-n{color:var(--sky);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.activity .msg{color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.activity a{color:inherit;text-decoration:none}
+.activity a:hover .msg{text-decoration:underline}
+
+.contact{padding:120px 0}
+.contact h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:700;max-width:20ch;margin-bottom:1.2rem}
+.contact p{color:var(--muted)}
+.contact .email{font-size:1.3rem;font-weight:600;color:var(--text)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:920px){
+  nav ul{display:none}
+  .hero,.work,.repos,.lanes,.split{grid-template-columns:1fr}
+  .hero{gap:36px;padding:28px 0 56px}
+  .proof{grid-template-columns:1fr 1fr}
+  .proof a:nth-child(3){border-left:0;padding-left:0}
+  .proof a:nth-child(n+3){border-top:1px solid var(--line)}
+  .activity li{grid-template-columns:90px 1fr;gap:4px 12px}
+  .activity .msg{grid-column:1/3}
+  section{padding-top:80px}
+}
+@media (max-width:520px){
+  .wrap{padding:0 18px}
+  .tile,.tile.big,.repo,.arch{padding:20px}
+  .live dl{grid-template-columns:1fr;gap:2px}
+  .live dd{margin-bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<main class="wrap">
-  <h1>Yatharth Choudhary</h1>
-  <p>Cloud and platform engineer in Toronto. I build infrastructure on AWS for work and on Proxmox at home.</p>
+<div class="wrap">
+
+<nav aria-label="Main">
+  <a class="me" href="/">yatty.ca</a>
   <ul>
-    <li><a href="/resume/"><b>Resume</b><span>Experience, selected work and how to reach me.</span><i>yatty.ca/resume</i></a></li>
-    <li><a href="https://github.com/Yatharth121"><b>Code</b><span>Open-source Terraform modules and CI workflows.</span><i>GitHub</i></a></li>
+    <li><a href="/resume/">Resume</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#open-source">Open source</a></li>
+    <li><a href="#now">Now</a></li>
+    <li><a href="#uses">Uses</a></li>
+    <li><a href="https://github.com/Yatharth121">GitHub</a></li>
   </ul>
-  <footer>Homelab docs are on the way. <a href="https://github.com/Yatharth121/yatty.ca">Source for this site</a>.</footer>
-</main>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Yatharth Choudhary</h1>
+    <p class="role">Cloud &amp; platform engineer. I build the AWS foundations other teams ship on.</p>
+    <p class="lede">Seven years across Amazon, Nokia and Assent. Today I run infrastructure as code, identity, security tooling and delivery pipelines for 65+ AWS accounts in Toronto, and I'm looking for my next senior cloud, platform or SRE role.</p>
+    <ul class="stackline">
+      <li>AWS</li><li>Terraform</li><li>GitHub Actions</li><li>ECS / Fargate</li><li>IAM Identity Center</li><li>Python</li><li>MCP agents</li>
+    </ul>
+    <div class="ctas">
+      <a class="btn primary" href="/resume/">Read the resume</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <aside class="live" aria-label="Live deploy status of this site">
+    <div class="live-head"><span><i class="dot" id="live-dot"></i><span id="live-state">Checking deploy status…</span></span><span>live from GitHub</span></div>
+    <dl>
+      <dt>site</dt><dd>yatty.ca</dd>
+      <dt>hosting</dt><dd>GitHub Pages</dd>
+      <dt>pipeline</dt><dd>html-validate → lychee → deploy</dd>
+      <dt>last deploy</dt><dd id="live-when">—</dd>
+      <dt>commit</dt><dd id="live-commit">—</dd>
+      <dt>module ci</dt><dd id="live-mod">—</dd>
+    </dl>
+    <div class="foot">This panel reads the GitHub Actions API in your browser each time the page loads.</div>
+  </aside>
+</header>
+
+<div class="proof">
+  <a href="/resume/#work" style="--c:var(--cost)"><b>$400K+</b><span>a year saved by automation</span></a>
+  <a href="/resume/#governance" style="--c:var(--id)"><b>65+</b><span>AWS accounts managed</span></a>
+  <a href="/resume/#work" style="--c:var(--iac)"><b>20+</b><span>production Terraform modules</span></a>
+  <a href="/resume/#work" style="--c:var(--sec)"><b>20+</b><span>environments with malware scanning</span></a>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="head">
+    <h2>Selected work</h2>
+    <p>Three things I'd point a hiring manager to first. Each one links to the full write-up with an architecture diagram.</p>
+  </div>
+  <div class="work">
+    <a class="tile big" href="/resume/#work" style="--c:var(--cost)">
+      <div class="k">$60K → $400K</div>
+      <h3>Scaling a cost scheduler across the organization</h3>
+      <p>I rebuilt an 8-account scheduler as a Terraform module and rolled it out with GitHub Actions to 50+ accounts. Non-production EC2, ECS and RDS now stop outside working hours.</p>
+      <div class="mini" id="mini" aria-hidden="true"></div>
+      <span class="go">Read the case study</span>
+    </a>
+    <div class="col">
+      <a class="tile" href="/resume/#ai" style="--c:var(--iac)">
+        <div class="k">MCP</div>
+        <h3>A CloudOps AI framework</h3>
+        <p>Agents preconfigured for each infrastructure repo, connected to AWS, GitHub and Jira.</p>
+        <span class="go">See how it works</span>
+      </a>
+      <a class="tile" href="/resume/#governance" style="--c:var(--id)">
+        <div class="k">$140K</div>
+        <h3>Enterprise SSO, rescued</h3>
+        <p>I fixed AD FS and SAML for enterprise clients after a key departure and unblocked a renewal.</p>
+        <span class="go">Identity and governance</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section id="open-source">
+  <div class="head">
+    <h2>Open source</h2>
+    <p>Work patterns I've rebuilt from scratch on my own time and published. No employer code.</p>
+  </div>
+  <div class="repos">
+    <article class="repo" style="--c:var(--cost)">
+      <div class="repo-top"><a href="https://github.com/Yatharth121/terraform-aws-resource-scheduler">terraform-aws-resource-scheduler</a><span class="badge" id="mod-badge">CI —</span></div>
+      <p>A Terraform module that stops and starts tagged AWS resources on a schedule to cut non-production cost.</p>
+      <ul>
+        <li>EC2, RDS, Aurora and ECS on EventBridge Scheduler and Lambda</li>
+        <li>Every write permission is limited to resources with the schedule tag</li>
+        <li>Tested without an AWS account: pytest, terraform test, tflint, checkov</li>
+      </ul>
+      <div class="meta"><span>HCL, Python</span><span>MIT</span><span id="mod-pushed">updated —</span></div>
+    </article>
+    <article class="repo" style="--c:var(--sky)">
+      <div class="repo-top"><a href="https://github.com/Yatharth121/yatty.ca">yatty.ca</a><span class="badge" id="site-badge">deploy —</span></div>
+      <p>This website. Plain static HTML with no build step, validated and deployed by GitHub Actions on every push.</p>
+      <ul>
+        <li>HTML validation and link checking before every deploy</li>
+        <li>Pull requests run checks without deploying</li>
+        <li>Custom apex domain, with the self-hosted lab kept on separate subdomains</li>
+      </ul>
+      <div class="meta"><span>HTML, CSS, JS</span><span>GitHub Pages</span><span id="site-pushed">updated —</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- NOW + USES -->
+<section id="now">
+  <div class="split">
+    <div>
+      <h2>Now</h2>
+      <div class="now-date">Updated November 2026</div>
+      <ul class="now">
+        <li style="--c:var(--iac)"><div><b>Building AI agents for infrastructure work</b><span>Growing the CloudOps AI framework at Assent and wiring more of our tools into it through MCP.</span></div></li>
+        <li style="--c:var(--sky)"><div><b>Studying for the CKA</b><span>Moving from ECS toward Kubernetes administration.</span></div></li>
+        <li style="--c:var(--cost)"><div><b>Publishing more Terraform</b><span>Next up: a Fargate Spot service module and a reusable plan/apply workflow.</span></div></li>
+        <li style="--c:var(--id)"><div><b>Rebuilding homelab storage</b><span>Moving the media library onto a ZFS pool and documenting the lab for /homelab-docs.</span></div></li>
+        <li style="--c:var(--sec)"><div><b>Looking for a senior role</b><span>Cloud, platform or SRE, in the GTA or remote in Canada.</span></div></li>
+      </ul>
+    </div>
+    <div class="uses" id="uses">
+      <h2>Uses</h2>
+      <div class="now-date">Tools and kit, work and home</div>
+      <dl>
+        <dt>Infrastructure</dt><dd>Terraform, CloudFormation, AWS CDK, Ansible</dd>
+        <dt>Delivery</dt><dd>GitHub Actions, Jenkins, pre-commit, tflint, checkov</dd>
+        <dt>AI tooling</dt><dd>GitHub Copilot agent mode and CLI, Claude, MCP servers for AWS, GitHub and Atlassian</dd>
+        <dt>Observability</dt><dd>CloudWatch, New Relic, PagerDuty, Elasticsearch and Kibana</dd>
+        <dt>Homelab compute</dt><dd>Proxmox VE on a small-form-factor Dell, running LXC containers</dd>
+        <dt>Homelab network</dt><dd>OPNsense firewall, Aruba managed switch with VLANs, Wi-Fi access point, Pi-hole</dd>
+        <dt>Homelab storage</dt><dd>TrueNAS with three 8 TB drives in RAIDZ1</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITY -->
+<section id="commits">
+  <div class="head">
+    <h2>Recent commits</h2>
+    <p>Pulled live from GitHub's public API when the page loads.</p>
+  </div>
+  <ol class="activity" id="activity"><li><span class="when">—</span><span class="repo-n">loading</span><span class="msg">Fetching recent commits…</span></li></ol>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Hiring for senior cloud, platform or SRE?</h2>
+  <p>Email is the fastest way to reach me. The full resume is at <a href="/resume/">yatty.ca/resume</a>.</p>
+  <p><a class="email" href="mailto:choudhary.yatharth@gmail.com">choudhary.yatharth@gmail.com</a></p>
+</section>
+</div>
+
+<footer><div class="wrap"><span>© 2026 Yatharth Choudhary</span><span><a href="https://github.com/Yatharth121/yatty.ca">Source on GitHub</a></span></div></footer>
+
+<script>
+(function(){
+  // mini account grid on the scheduler tile
+  var mini=document.getElementById('mini');
+  var s=7,a=[];for(var i=0;i<65;i++)a.push(i);
+  for(var k=a.length-1;k>0;k--){s=(s*9301+49297)%233280;var r=Math.floor(s/233280*(k+1));var t=a[k];a[k]=a[r];a[r]=t;}
+  var on={};a.slice(0,50).forEach(function(i){on[i]=1;});
+  for(var j=0;j<65;j++){var c=document.createElement('i');if(on[j])c.className='on';mini.appendChild(c);}
+
+  var API='https://api.github.com/repos/Yatharth121/';
+  function ago(iso){
+    var sec=Math.max(1,(Date.now()-new Date(iso).getTime())/1000);
+    var u=[[31536000,'year'],[2592000,'month'],[86400,'day'],[3600,'hour'],[60,'minute']];
+    for(var i=0;i<u.length;i++){var n=Math.floor(sec/u[i][0]);if(n>=1)return n+' '+u[i][1]+(n>1?'s':'')+' ago';}
+    return 'just now';
+  }
+  function get(path){return fetch(API+path,{headers:{Accept:'application/vnd.github+json'}}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();});}
+  function text(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
+  function status(run){
+    if(!run)return {label:'no runs',cls:''};
+    if(run.status!=='completed')return {label:'running',cls:'run'};
+    return run.conclusion==='success'?{label:'passing',cls:'ok'}:{label:run.conclusion,cls:'bad'};
+  }
+
+  // site deploy status
+  get('yatty.ca/actions/runs?branch=main&per_page=1').then(function(d){
+    var run=d.workflow_runs&&d.workflow_runs[0], st=status(run);
+    document.getElementById('live-dot').className='dot '+st.cls;
+    text('live-state', st.cls==='ok'?'Deployed, all checks passing':'Last deploy: '+st.label);
+    if(run){
+      text('live-when', ago(run.updated_at));
+      var c=document.getElementById('live-commit');
+      c.textContent='';var l=document.createElement('a');l.href=run.html_url;
+      l.textContent=run.head_sha.slice(0,7)+'  '+(run.head_commit?run.head_commit.message.split('\n')[0]:'');
+      c.appendChild(l);
+      text('site-badge','deploy '+st.label);
+    }
+  }).catch(function(){text('live-state','Status unavailable right now');});
+
+  // module CI
+  get('terraform-aws-resource-scheduler/actions/runs?branch=main&per_page=1').then(function(d){
+    var run=d.workflow_runs&&d.workflow_runs[0], st=status(run);
+    text('live-mod','resource-scheduler '+st.label);
+    text('mod-badge','CI '+st.label);
+  }).catch(function(){});
+  ['terraform-aws-resource-scheduler','yatty.ca'].forEach(function(n){
+    get(n).then(function(r){text(n==='yatty.ca'?'site-pushed':'mod-pushed','updated '+ago(r.pushed_at));}).catch(function(){});
+  });
+
+  // recent commits across repos
+  Promise.all(['yatty.ca','terraform-aws-resource-scheduler'].map(function(n){
+    return get(n+'/commits?per_page=5').then(function(list){return list.map(function(c){return {repo:n,c:c};});}).catch(function(){return [];});
+  })).then(function(groups){
+    var all=[].concat.apply([],groups).sort(function(x,y){return new Date(y.c.commit.author.date)-new Date(x.c.commit.author.date);}).slice(0,6);
+    var ol=document.getElementById('activity');ol.textContent='';
+    if(!all.length){var li=document.createElement('li');li.innerHTML='<span class="when">—</span><span class="repo-n">github</span><span class="msg"></span>';li.querySelector('.msg').textContent='Couldn’t reach GitHub right now. See github.com/Yatharth121.';ol.appendChild(li);return;}
+    all.forEach(function(x){
+      var li=document.createElement('li'),a=document.createElement('a');
+      a.href=x.c.html_url;a.style.display='contents';
+      var w=document.createElement('span');w.className='when';w.textContent=ago(x.c.commit.author.date);
+      var r=document.createElement('span');r.className='repo-n';r.textContent=x.repo;
+      var m=document.createElement('span');m.className='msg';m.textContent=x.c.commit.message.split('\n')[0];
+      a.appendChild(w);a.appendChild(r);a.appendChild(m);li.appendChild(a);ol.appendChild(li);
+    });
+  });
+})();
+</script>
 </body>
 </html>
